@@ -1,0 +1,52 @@
+{
+  "name": "@mastermunj/oxc-config",
+  "version": "0.0.0",
+  "description": "Shared oxlint + oxfmt configuration for TypeScript packages",
+  "keywords": [
+    "config",
+    "format",
+    "lint",
+    "oxfmt",
+    "oxlint",
+    "typescript"
+  ],
+  "homepage": "https://github.com/mastermunj/oxc-config#readme",
+  "bugs": {
+    "url": "https://github.com/mastermunj/oxc-config/issues"
+  },
+  "license": "MIT",
+  "author": "Munjal Dhamecha",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mastermunj/oxc-config.git"
+  },
+  "files": [
+    ".oxlintrc.json",
+    ".oxfmtrc.json"
+  ],
+  "exports": {
+    "./oxlint": "./.oxlintrc.json",
+    "./oxfmt": "./.oxfmtrc.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "format": "oxfmt --check .",
+    "format:fix": "oxfmt --write .",
+    "format:report": "node ./scripts/format_report.mjs",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix",
+    "release": "commit-and-tag-version",
+    "release:mock": "npm run release -- --dry-run"
+  },
+  "devDependencies": {
+    "commit-and-tag-version": "^12.6.1",
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0"
+  },
+  "peerDependencies": {
+    "oxfmt": "^0.36.0",
+    "oxlint": "^1.51.0"
+  }
+}
