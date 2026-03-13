@@ -42,12 +42,12 @@
   },
   "devDependencies": {
     "commit-and-tag-version": "^12.6.1",
-    "oxfmt": "^0.37.0",
+    "oxfmt": "^0.40.0",
     "oxlint": "^1.52.0",
     "oxlint-tsgolint": "^0.16.0"
   },
   "peerDependencies": {
-    "oxfmt": "^0.37.0",
+    "oxfmt": "^0.40.0",
     "oxlint": "^1.52.0",
     "oxlint-tsgolint": "^0.16.0"
   }
