@@ -44,11 +44,11 @@
     "commit-and-tag-version": "^12.6.1",
     "oxfmt": "^0.40.0",
     "oxlint": "^1.52.0",
-    "oxlint-tsgolint": "^0.16.0"
+    "oxlint-tsgolint": "^0.17.1"
   },
   "peerDependencies": {
     "oxfmt": "^0.40.0",
     "oxlint": "^1.52.0",
-    "oxlint-tsgolint": "^0.16.0"
+    "oxlint-tsgolint": "^0.17.1"
   }
 }
