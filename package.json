@@ -1,6 +1,6 @@
 {
   "name": "@mastermunj/oxc-config",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Shared oxlint + oxfmt configuration for TypeScript packages",
   "keywords": [
     "config",
