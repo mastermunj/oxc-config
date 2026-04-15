@@ -44,6 +44,6 @@
     "commit-and-tag-version": "^12.7.1",
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
-    "oxlint-tsgolint": "^0.17.3"
+    "oxlint-tsgolint": "^0.21.0"
   }
 }
