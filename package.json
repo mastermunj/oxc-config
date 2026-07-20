@@ -42,8 +42,8 @@
   },
   "devDependencies": {
     "commit-and-tag-version": "^13.0.0",
-    "oxfmt": "^0.54.0",
-    "oxlint": "^1.57.0",
+    "oxfmt": "^0.59.0",
+    "oxlint": "^1.74.0",
     "oxlint-tsgolint": "^0.25.0"
   }
 }
