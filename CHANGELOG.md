@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.6](https://github.com/mastermunj/oxc-config/compare/v0.0.5...v0.0.6) (2026-07-23)
+
+### Features
+
+* convert JSON configs to TypeScript with type-aware support via config ([cdd4f2c](https://github.com/mastermunj/oxc-config/commit/cdd4f2c74a40392c81108bd90b531360e509dd46))
 ## [0.0.5](https://github.com/mastermunj/oxc-config/compare/v0.0.4...v0.0.5) (2026-07-20)
 
 ## [0.0.4](https://github.com/mastermunj/oxc-config/compare/v0.0.3...v0.0.4) (2026-03-24)
