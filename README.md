@@ -4,88 +4,103 @@ Shared Oxlint and Oxfmt configuration for TypeScript packages.
 
 ## What this package provides
 
-- Shareable `oxlint` base config
+- Shareable `oxlint` base config with type-aware linting (tsgolint)
 - Shareable `oxfmt` base config
-- A simple starting point that teams can customize per package
+- TypeScript-first: fully typed, composable via `extends` / spread
 
 ## Install
 
 ```sh
-npm install --save-dev @mastermunj/oxc-config oxlint oxfmt oxlint-tsgolint@latest
+npm install --save-dev @mastermunj/oxc-config oxlint oxfmt oxlint-tsgolint
 ```
 
 ## Usage
 
 ### 1) Oxlint config
 
-Create `.oxlintrc.json` in your project root:
+Create `oxlint.config.ts` in your project root:
 
-```json
-{
-  "extends": ["./node_modules/@mastermunj/oxc-config/.oxlintrc.json"]
-}
+```ts
+import { defineConfig } from 'oxlint';
+import baseConfig from '@mastermunj/oxc-config/oxlint';
+
+export default defineConfig({
+  extends: [baseConfig],
+});
 ```
 
 ### 2) Customize lint rules on top
 
-Yes, you can both override existing rules and add new rules.
+Pass additional rules or overrides after `extends`:
 
-Example:
+```ts
+import { defineConfig } from 'oxlint';
+import baseConfig from '@mastermunj/oxc-config/oxlint';
 
-```json
-{
-  "extends": ["./node_modules/@mastermunj/oxc-config/.oxlintrc.json"],
-  "rules": {
-    "typescript/no-explicit-any": "warn",
-    "no-console": "error"
+export default defineConfig({
+  extends: [baseConfig],
+  rules: {
+    'no-console': 'error',
   },
-  "overrides": [
+  overrides: [
     {
-      "files": ["scripts/**/*.ts"],
-      "rules": {
-        "eslint/no-console": "off"
-      }
-    }
-  ]
-}
+      files: ['scripts/**/*.ts'],
+      rules: {
+        'no-console': 'off',
+      },
+    },
+  ],
+});
 ```
 
 ### 3) Oxfmt config
 
-Use the shared formatter config via `--config`:
+Create `oxfmt.config.ts` in your project root:
 
-```sh
-oxfmt --check --config ./node_modules/@mastermunj/oxc-config/.oxfmtrc.json .
-oxfmt --write --config ./node_modules/@mastermunj/oxc-config/.oxfmtrc.json .
+```ts
+import { defineConfig } from 'oxfmt';
+import baseConfig from '@mastermunj/oxc-config/oxfmt';
+
+export default defineConfig({
+  ...baseConfig,
+});
 ```
 
-### 4) Scripts
+### 4) Customize formatter settings
+
+Spread the base config and override only what you need:
+
+```ts
+import { defineConfig } from 'oxfmt';
+import baseConfig from '@mastermunj/oxc-config/oxfmt';
+
+export default defineConfig({
+  ...baseConfig,
+  printWidth: 100,
+});
+```
+
+### 5) Scripts
+
+Both tools auto-discover `oxlint.config.ts` and `oxfmt.config.ts` in the project root — no `--config` flag needed.
 
 ```json
 {
   "scripts": {
-    "lint": "oxlint --type-aware .",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "oxfmt --check --config ./node_modules/@mastermunj/oxc-config/.oxfmtrc.json .",
-    "format:fix": "oxfmt --write --config ./node_modules/@mastermunj/oxc-config/.oxfmtrc.json ."
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "format": "oxfmt --check .",
+    "format:fix": "oxfmt --write ."
   }
 }
 ```
 
-### 5) Customize formatter settings
-
-`oxfmt` does not currently support deep config inheritance like lint `extends` in the same way.
-
-Recommended approach:
-
-- Start from the shared config file
-- Copy into your package as `.oxfmtrc.json`
-- Adjust only settings you want to change
+> **Type-aware linting** is enabled automatically via `options.typeAware: true` in the base config (powered by tsgolint). No `--type-aware` CLI flag needed.
 
 ## Package Exports
 
-- `@mastermunj/oxc-config/oxlint`
-- `@mastermunj/oxc-config/oxfmt`
+- `@mastermunj/oxc-config/oxlint` → `oxlint.config.ts`
+- `@mastermunj/oxc-config/oxfmt` → `oxfmt.config.ts`
 
 ## License
 

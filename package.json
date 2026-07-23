@@ -21,12 +21,13 @@
     "url": "git+https://github.com/mastermunj/oxc-config.git"
   },
   "files": [
-    ".oxlintrc.json",
-    ".oxfmtrc.json"
+    "oxlint.config.ts",
+    "oxfmt.config.ts"
   ],
+  "type": "module",
   "exports": {
-    "./oxlint": "./.oxlintrc.json",
-    "./oxfmt": "./.oxfmtrc.json"
+    "./oxlint": "./oxlint.config.ts",
+    "./oxfmt": "./oxfmt.config.ts"
   },
   "publishConfig": {
     "access": "public"
@@ -35,15 +36,15 @@
     "format": "oxfmt --check .",
     "format:fix": "oxfmt --write .",
     "format:report": "node ./scripts/format_report.mjs",
-    "lint": "oxlint --type-aware .",
+    "lint": "oxlint .",
     "lint:fix": "npm run lint -- --fix",
     "release": "commit-and-tag-version",
     "release:mock": "npm run release -- --dry-run"
   },
   "devDependencies": {
-    "commit-and-tag-version": "^13.0.0",
+    "commit-and-tag-version": "^13.1.0",
     "oxfmt": "^0.60.0",
-    "oxlint": "^1.74.0",
+    "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^7.0.2001"
   }
 }
