@@ -22,22 +22,31 @@
   },
   "files": [
     "oxlint.config.ts",
-    "oxfmt.config.ts"
+    "oxfmt.config.ts",
+    "dist/"
   ],
   "type": "module",
   "exports": {
-    "./oxlint": "./oxlint.config.ts",
-    "./oxfmt": "./oxfmt.config.ts"
+    "./oxlint": {
+      "types": "./dist/oxlint.config.d.ts",
+      "default": "./dist/oxlint.config.js"
+    },
+    "./oxfmt": {
+      "types": "./dist/oxfmt.config.d.ts",
+      "default": "./dist/oxfmt.config.js"
+    }
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
+    "build": "tsdown",
     "format": "oxfmt --check .",
     "format:fix": "oxfmt --write .",
     "format:report": "node ./scripts/format_report.mjs",
     "lint": "oxlint .",
     "lint:fix": "npm run lint -- --fix",
+    "prepublishOnly": "npm run build",
     "release": "commit-and-tag-version",
     "release:mock": "npm run release -- --dry-run"
   },
@@ -45,6 +54,7 @@
     "commit-and-tag-version": "^13.1.0",
     "oxfmt": "^0.60.0",
     "oxlint": "^1.75.0",
-    "oxlint-tsgolint": "^7.0.2001"
+    "oxlint-tsgolint": "^7.0.2001",
+    "tsdown": "^0.22.14"
   }
 }

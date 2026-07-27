@@ -1,4 +1,4 @@
-import { defineConfig } from 'oxlint';
+import { defineConfig, type OxlintConfig } from 'oxlint';
 
 export default defineConfig({
   plugins: ['eslint', 'typescript', 'unicorn', 'import', 'oxc', 'vitest'],
@@ -95,4 +95,4 @@ export default defineConfig({
       },
     },
   ],
-});
+}) as OxlintConfig;

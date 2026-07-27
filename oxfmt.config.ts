@@ -1,4 +1,4 @@
-import { defineConfig } from 'oxfmt';
+import { defineConfig, type OxfmtConfig } from 'oxfmt';
 
 export default defineConfig({
   singleQuote: true,
@@ -7,4 +7,4 @@ export default defineConfig({
     sortScripts: true,
   },
   ignorePatterns: ['**/dist/**', '**/build/**', 'coverage/**', '*.min.js'],
-});
+}) as OxfmtConfig;

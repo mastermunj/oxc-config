@@ -99,8 +99,8 @@ Both tools auto-discover `oxlint.config.ts` and `oxfmt.config.ts` in the project
 
 ## Package Exports
 
-- `@mastermunj/oxc-config/oxlint` → `oxlint.config.ts`
-- `@mastermunj/oxc-config/oxfmt` → `oxfmt.config.ts`
+- `@mastermunj/oxc-config/oxlint` → `oxlint.config.js` (ESM, compiled from `oxlint.config.ts`)
+- `@mastermunj/oxc-config/oxfmt` → `oxfmt.config.js` (ESM, compiled from `oxfmt.config.ts`)
 
 ## License
 
