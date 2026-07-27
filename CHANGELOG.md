@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.7](https://github.com/mastermunj/oxc-config/compare/v0.0.6...v0.0.7) (2026-07-27)
+
+### Bug Fixes
+
+* add tsdown build pipeline ([2e573a3](https://github.com/mastermunj/oxc-config/commit/2e573a366008340fdb2d87b271fd34210c301d46))
 ## [0.0.6](https://github.com/mastermunj/oxc-config/compare/v0.0.5...v0.0.6) (2026-07-23)
 
 ### Features
