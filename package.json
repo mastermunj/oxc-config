@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "commit-and-tag-version": "^13.1.0",
-    "oxfmt": "^0.60.0",
+    "oxfmt": "^0.62.0",
     "oxlint": "^1.75.0",
     "oxlint-tsgolint": "^7.0.2001",
     "tsdown": "^0.22.14"
